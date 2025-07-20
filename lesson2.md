@@ -38,7 +38,7 @@ docker run -it ubuntu sh -c 'while true; do echo "Input website:"; read website;
 ```bash
 ➜  ~ docker run -it --rm --name helsinki_web ubuntu sh -c "apt update && apt install -y curl && while true; do echo 'Input website:'; read website; echo 'Searching..'; sleep 1; curl http://\$website; done"
 ```
-<img width="427" height="374" alt="Screenshot 2025-07-20 at 0 05 45" src="https://github.com/user-attachments/assets/d416d01a-19a7-443e-b865-88e5dc32d272" />
+<img src="https://github.com/user-attachments/assets/d416d01a-19a7-443e-b865-88e5dc32d272" alt="image" style="width:40%;" />
 
 Another solution is **docker exec**  
 ```sh
@@ -47,3 +47,21 @@ Another solution is **docker exec**
 
 docker exec                          -->      Run a command in an already running container  
 docker exec -it <nameofcontainer> sh -->      Debug or manually inspect inside the running container
+
+#IMAGES
+
+Images are the building blocks for containers and other images. Images are immutable.  
+A docker image is a file, which cannot be editted. 
+
+## Where does the image from?  
+Several images can be pulled from [Dockerhub](https://hub.docker.com/)  
+Docker's offical images can be searched and pulled from [Docker Library](https://github.com/docker-library)
+```bash
+docker run hello-world
+docker pull hello-world
+docker search hello-world
+```  
+Using **docker search <name_of_image>** will give us a result of different images with a same name  
+<img src="https://github.com/user-attachments/assets/40b02920-ce6e-4d44-8606-a2c823db88dc" alt="image" style="width:50%;" />
+
+
