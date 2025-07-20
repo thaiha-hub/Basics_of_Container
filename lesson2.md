@@ -34,8 +34,16 @@ docker run -it ubuntu sh -c 'while true; do echo "Input website:"; read website;
 ```
 **Here comes a problem**  
   The above command did not run successfully since curl isn't installed in ubuntu, which means it needs to be installed first before the sh command can be run.  
-  Hence, there are two solutions: either log into the container and proceed with the installation of curl before continuing with the sh command, or I need to create a new container using ubuntu with sh commands including 
+  Hence, there are some solutions: either log into the container and proceed with the installation of curl before continuing with the sh command, or I need to create a new container using ubuntu with sh commands including 
 ```bash
 ➜  ~ docker run -it --rm --name helsinki_web ubuntu sh -c "apt update && apt install -y curl && while true; do echo 'Input website:'; read website; echo 'Searching..'; sleep 1; curl http://\$website; done"
 ```
 <img width="427" height="374" alt="Screenshot 2025-07-20 at 0 05 45" src="https://github.com/user-attachments/assets/d416d01a-19a7-443e-b865-88e5dc32d272" />
+
+Another solution is **docker exec**  
+```sh
+➜  ~ docker exec -it hel_web sh -c "while true; do echo 'Input website:'; read website; echo 'Searching...'; sleep 1; curl http://\$website; done"
+```
+
+docker exec                          -->      Run a command in an already running container  
+docker exec -it <nameofcontainer> sh -->      Debug or manually inspect inside the running container
