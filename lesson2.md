@@ -1,3 +1,5 @@
+# IMAGES AND CONTAINERS 
+
 ```bash
 docker pull             download an image
 docker run *image*      download and run an image (if it isn't already downloaded in the local machine)
@@ -64,7 +66,7 @@ docker search hello-world
 Using **docker search <name_of_image>** will give us a result of different images with a same name  
 <img src="https://github.com/user-attachments/assets/40b02920-ce6e-4d44-8606-a2c823db88dc" alt="image" style="width:50%;" />
 
-Excercise: Hello Docker Hub  
+Excercise: Hello-docker Hub  
 ```bash
 # I run the following command
 ➜  ~ docker run -it devopsdockeruh/pull_excercise
@@ -72,6 +74,35 @@ Excercise: Hello Docker Hub
 ➜  ~ docker run -it --entrypoint sh devopsdockeruh/pull_exercise
 # Inside the container i can check README.md file to see the password
 ```
+
+## DOCKERFILE
+Dockerfile is kinda a recipe book for creating custom images. It's a plain text that contains a series of instructions of how to build a Docker image.  
+Each instruction in a Dockerfile creates a layer in an image.
+### Layers  
+**FROM**  
+It tells Docker what existing image one wants to start with. And this image is the foundation.  
+--> It pulls the specified base image and uses it as the starting point for your new image. You inherit everything from it: its operating system, pre-installed software, and configuration.
+```DOCKERFILE
+FROM devopsdockeruh/simple-web-service:alpine
+```
+This example shows that I want to start with the image devopsdockeruh/simple_web_service, specifically the alpine version. 
+
+**CMD**  
+The CMD instruction provides default arguments to an ENTRYPOINT or executes a command if no ENTRYPOINT is defined. Think of it as the default action the container will take when it starts, unless one tells it otherwise.  
+* It sets the default command or arguments that will be executed when a container based on the image is run.
+* Key point: If you provide arguments when you run the docker run command, those arguments will override the CMD instruction.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
