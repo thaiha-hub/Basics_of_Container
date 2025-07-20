@@ -64,6 +64,15 @@ docker search hello-world
 Using **docker search <name_of_image>** will give us a result of different images with a same name  
 <img src="https://github.com/user-attachments/assets/40b02920-ce6e-4d44-8606-a2c823db88dc" alt="image" style="width:50%;" />
 
+Excercise: Hello Docker Hub  
+```bash
+# I run the following command
+➜  ~ docker run -it devopsdockeruh/pull_excercise
+# the output requests passwords which can be found on their docker hub or following command
+➜  ~ docker run -it --entrypoint sh devopsdockeruh/pull_exercise
+# Inside the container i can check README.md file to see the password
+```
+
 
 
 
