@@ -87,10 +87,18 @@ FROM devopsdockeruh/simple-web-service:alpine
 ```
 This example shows that I want to start with the image devopsdockeruh/simple_web_service, specifically the alpine version. 
 
+The CMD and ENTRYPOINT instructions in a Dockerfile define what command is executed when a container is started from the image.[12] While they may seem similar, they have distinct purposes.  
+
 **CMD**  
 The CMD instruction provides default arguments to an ENTRYPOINT or executes a command if no ENTRYPOINT is defined. Think of it as the default action the container will take when it starts, unless one tells it otherwise.  
 * It sets the default command or arguments that will be executed when a container based on the image is run.
 * Key point: If you provide arguments when you run the docker run command, those arguments will override the CMD instruction.
+* These can be easily overridden by specifying a command after the image name in the docker run command.
+* If a Dockerfile has multiple CMD instructions, only the last one takes effect.
+
+**ENTRYPOINT**  
+This instruction configures a container to run as an executable. The command specified in ENTRYPOINT will always be executed when the container starts.  
+Any commands provided to docker run will be appended as arguments to the ENTRYPOINT command.
 
 
 
